@@ -11,14 +11,14 @@ import javax.persistence.*;
  *
  */
 @Entity
-public class Condutor implements Serializable {
+@Table(name="CONDUTOR")
+@PrimaryKeyJoinColumn(name="ID_USUARIO", referencedColumnName="ID")
+public class Condutor extends Usuario implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String nome;
-	private String login;
-	private String password;
+	
+	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL, optional=false)
+	@JoinColumn(name="veiculo_id", referencedColumnName="id")
+	private Veiculo veiculo;
 
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(name="itinerario", joinColumns={@JoinColumn(name="id_condutor")},
@@ -32,29 +32,6 @@ public class Condutor implements Serializable {
 		super();
 	}   
 
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	public List<Endereco> getItinerario() {
 		return itinerario;

@@ -14,7 +14,11 @@ public class Coordenada implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(name = "LATITUDE")
 	private Long latitude;
+	
+	@Column(name = "LONGITUDE")
 	private Long longitude;
 
 	@OneToOne(mappedBy="coordenada")

@@ -10,19 +10,25 @@ import javax.persistence.*;
  *
  */
 @Entity
-
-public class Usuario implements Serializable {
+@Table(name="USUARIO")
+@DiscriminatorColumn(name="DISC_USUARIO")
+@Inheritance(strategy=InheritanceType.JOINED)
+public abstract class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(name = "NOME")
 	private String nome;
+	
+	@Column(name = "LOGIN")
 	private String login;
+	
+	@Column(name = "PASSWORD")
 	private String password;
 
-	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL, optional=false)
-	@JoinColumn(name="endereco_id", referencedColumnName="id")
-	private Endereco endereco;
+
 	private static final long serialVersionUID = 1L;
 
 	public Usuario() {
@@ -45,15 +51,6 @@ public class Usuario implements Serializable {
 		this.password = password;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-		endereco.setUsuario(this);
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -63,3 +60,4 @@ public class Usuario implements Serializable {
 	}   
 
 }
+
