@@ -24,5 +24,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.datatools.connectivity.jdt.DRIVERLIBRARY/MySQL JDBC Driver"/>
 	<classpathentry kind="lib" path="C:/Users/Marcio/Desktop/eclipse kepler/hibernate-release-5.1.0.Final/hibernate-release-5.1.0.Final/lib/jpa/hibernate-entitymanager-5.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Marcio/Desktop/eclipse kepler/dbunit/dbunit-2.4.9.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

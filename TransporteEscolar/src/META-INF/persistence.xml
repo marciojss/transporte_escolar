@@ -6,6 +6,9 @@
 	<class>transporte.Coordenada</class>
 	<class>transporte.Endereco</class>
 	<class>transporte.Usuario</class>
+	<class>transporte.Aluno</class>
+	<class>transporte.Responsavel</class>
+	<class>transporte.Veiculo</class>
 	
     <properties>
         <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
